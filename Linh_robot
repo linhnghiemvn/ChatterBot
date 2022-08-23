@@ -1,3 +1,16 @@
+# import thư viện
 from chatterbot import ChatBot
-chatbot = ChatBot("Linh - Robot")
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
+# Tạo một instance chatbot với tên là Ron Obvious
+chatbot = ChatBot('Linh Robot')
+
+# Tạo trainer để train bot từ các đoan hội thoại có sẵn
+trainer = ChatterBotCorpusTrainer(chatbot)
+
+# Các đoạn hội thoại có sẵn của chatterbot
+trainer.train("chatterbot.corpus.english")
+
+# phản hồi từ bot với đoạn chat "Hello"
+response = chatbot.get_response("Hello")
+print(response)
